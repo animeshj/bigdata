@@ -48,7 +48,7 @@ def main(args : Array[String]): Unit={
 	val sc = new SparkContext(conf)
 	
 	val hadoopConfig = new Configuration(sc.hadoopConfiguration)
-	val rdd_file = sc.newAPIHadoopFile(args(0), classOf[org.data.hadoop]	, classOf[Text], classOf[Text], hadoopConfig )
+	val rdd_file = sc.newAPIHadoopFile(args(0), classOf[org.data.hadoop.NlinesFileName]	, classOf[Text], classOf[Text], hadoopConfig )
 	val grpd = rdd_file.map(x=>(x._2,x._1)).groupByKey()
 	val setd = grpd.map(x=>(x._1,x._2.toSet))
 	val filtered = setd.filter(x=>x._2.size==1).map(x=>(x._1.toString+"~"+x._2.head))
