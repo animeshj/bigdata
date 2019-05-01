@@ -1,2 +1,5 @@
 ScrapNotes
 TEsting 2
+full address:s:store76kdpp55unwoc.southcentralus.cloudapp.azure.com:3389
+prompt for credentials:i:1
+administrative session:i:1
